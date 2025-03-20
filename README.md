@@ -1,1 +1,1 @@
-[Website](http://justyndev.xyz/)
+[Website](http://justynart.xyz/)
