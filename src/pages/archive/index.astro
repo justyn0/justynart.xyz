@@ -1,0 +1,37 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+const posts = (await getCollection('archive'))
+	.filter((post) => !post.data.draft)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<BaseLayout>
+		<div class="home">
+			<div class="thumbnail-container" id="thumbnail-container" style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));">
+				{
+					posts.map((post) => (
+							<a href={`/archive/${post.slug}/`}>
+								<div class="thumbnail">
+									<img width={400} height={400} src={post.data.heroImage} alt="" />
+									<div class="thumbnail-title">{post.data.title}</div>
+								</div>
+							</a>
+					))
+				}
+			</div>
+		</div>
+		</BaseLayout>
+	</body>
+</html>

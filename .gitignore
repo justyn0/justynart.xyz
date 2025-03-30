@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# image source files
+*.psd
+
+# adding "_gitblock" into the name of any file or folder as a suffix will be ignored from the repo
+*_gitblock*

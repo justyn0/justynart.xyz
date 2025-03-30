@@ -14,7 +14,7 @@
 html
 {
     font-size: 1.2em;
-    font-family: "Urbanist", sans-serif;
+    font-family: 'Quicksand', sans-serif;
     color: var(--text);
 }
 
@@ -25,7 +25,7 @@ html
 
 body
 {
-    background-color: #ffffff;
+    background-color: var(--blog-background);
     max-width: 58rem;
     margin-left: auto;
     margin-right: auto;
@@ -33,42 +33,42 @@ body
 
 h1
 {
-    font-family: "Bebas Neue", sans-serif;
+    font-family: 'General Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 h2
 {
-    font-family: "Bebas Neue", sans-serif;
+    font-family: 'General Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 h3
 {
-    font-family: "Bebas Neue", sans-serif;
+    font-family: 'General Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 h4
 {
-    font-family: "Bebas Neue", sans-serif;
+    font-family: 'General Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 h5
 {
-    font-family: "Bebas Neue", sans-serif;
+    font-family: 'General Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 h6
 {
-    font-family: "Bebas Neue", sans-serif;
+    font-family: 'General Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -86,10 +86,10 @@ code
 
 header 
 {
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     margin: 0%;
-    background-color: #ffffff;
+    background-color: var(--blog-background);
     border-style: solid;
     border-color: var(--border);
     border-top: 0px;
@@ -100,11 +100,11 @@ header
 header a
 {
     display: inline-block;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
     margin-right: 20px;
     font-size: 1.5em;
-    font-family: "Bebas Neue", sans-serif;
+    font-family: 'General Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
     transition: 0.3s;
@@ -125,7 +125,7 @@ footer
     border-left: 0px;
     border-right: 0px;
     border-width: 1px;
-    background-color: white;
+    background-color: var(--blog-background);
 }
 
 .footer-container
@@ -213,8 +213,7 @@ a:hover
     border-style: solid;
     border-color: var(--border);
     border-width: 1px;
-    border-left: 0px;
-    border-right: 0px;
+    border-radius: 20px;
 }
 
 .home
@@ -342,7 +341,6 @@ a:hover
     cursor: pointer;
     opacity: 1;
     transition: opacity 0.3s;
-    background-color: #1e1e1e;
     width: 100%; /* Full width of grid item */
     padding-top: 100%; /* Makes the height equal to the width, keeping it square */
     position: relative; /* Contain absolutely positioned elements */
@@ -357,6 +355,7 @@ a:hover
     display: block;
     object-fit: cover;
     object-position: center center;
+    border-radius: 10px;
   }
   
   .thumbnail-title {
