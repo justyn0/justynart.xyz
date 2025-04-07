@@ -4,11 +4,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import type {GetStaticPathsOptions} from "astro";
 
-const posts = (await getCollection('blog'))
+export async function getStaticPaths({paginate}: GetStaticPathsOptions){
+	const posts = (await getCollection('blog'))
 	.filter((post) => !post.data.draft)
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+	);
+
+  	return paginate(posts, { pageSize: 2 });
+}
+
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,7 +29,7 @@ const posts = (await getCollection('blog'))
 			<div id="site-body">
 				<div class="container">
 					{
-						posts.map((post) => (
+						page.data.map((post) => (
 								<a href={`/blog/${post.slug}/`}>
 									<div class="content">
 										<h1 class="title">{post.data.title}</h1>
@@ -31,6 +39,13 @@ const posts = (await getCollection('blog'))
 								</a>
 						))
 					}
+					<div class="pagination">
+						<h1>Page {page.currentPage}</h1>
+						<!-- {page.url.first ? <a href={page.url.first}>First</a> : null} -->
+						{page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
+						{page.url.next ? <a href={page.url.next}>Next</a> : null}
+						<!-- {page.url.last ? <a href={page.url.last}>Last</a> : null} -->
+					</div>
 				</div>
 			</div>
 		</BaseLayout>
