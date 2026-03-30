@@ -3,22 +3,14 @@ const today = new Date();
 ---
 
 <footer>
-	<div class="footer-container">
-		<div class="row" style="font-size: 0.9em;">
-				<div class="column" style="padding-top: 50px">
-					<h2 style="font-weight: normal;">Social Media</h2>
-					<a href="https://bsky.app/profile/justynart.xyz"><p>Bluesky</p></a>
-					<a href="https://www.artstation.com/justyn8"><p>Artstation</p></a>
-					<a href="/rss.xml"><p>Blog RSS Feed</p></a>
-				</div>
-				<div class="column" style="padding-top: 50px">
-					<h2 style="font-weight: normal;">Contact</h2>
-					<a href="mailto:contactjustyn@gmail.com"><p>Email</p></a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div style="padding-top: 2em;">
-		&copy; {today.getFullYear()} All rights reserved
-	</div>
+	<div class="row">
+        <div class="column" style="padding-left: 20px;">&copy; {today.getFullYear()} Justyn</div>
+        <div class="column" style="text-align: right; padding-right: 30px;">
+			<a href="https://bsky.app/profile/justynart.xyz" title="Bluesky"><img src="/logos/bluesky.svg" class="link-icon" alt="Bluesky"></a>
+			<a href="https://www.artstation.com/justyn8" title="Artstation"><img src="/logos/artstation.svg" class="link-icon" alt="Artstation"></a>
+			<a href="/rss.xml" title="RSS Feed"><img src="/logos/rss.svg" class="link-icon" alt="RSS Feed"></a>
+			<a href="https://ko-fi.com/justyn1" title="Ko-fi"><img src="/logos/kofi.svg" class="link-icon" alt="Ko-fi"></a>
+			<a href="mailto:contactjustyn@gmail.com" title="E-mail"><img src="/logos/email.svg" class="link-icon" alt="E-mail"></a>
+        </div>
+    </div>
 </footer>

@@ -1,27 +1,36 @@
 ---
-import '../styles/global.css';
 import BaseHead from '../components/BaseHead.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('portfolio'))
+	.filter((post) => !post.data.draft)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
+<!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			h2 {text-align: center;}
-		</style>
 	</head>
-	<body>
-
-		<h1 style="text-align: center;">This site is under construction!</h1>
-		
-		<h2>
-		<p>Come back when this site is done!</p>
-		
-		|<a href="https://bsky.app/profile/justynart.xyz">Bluesky</a>|
-		<a href="https://www.tumblr.com/justyn1">Tumblr</a>|
-		<a href="https://ko-fi.com/justyn1">Ko-fi</a>|
-		</h2>
-		
-		</body>
+	<BaseLayout>
+		<div class="home">
+			<div class="portfolio-container">
+				<div class="thumbnail-container" id="thumbnail-container" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
+				{
+					posts.map((post) => (
+							<a href={`/portfolio/${post.id}/`}>
+								<div class="thumbnail">
+									<img width={1000} height={1000} src={post.data.heroImageSquare} alt="" />
+									<div class="thumbnail-title">{post.data.title}</div>
+								</div>
+							</a>
+					))
+				}
+			</div>
+		</div>
+	</BaseLayout>
+	</body>
 </html>

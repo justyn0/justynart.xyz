@@ -12,7 +12,9 @@ export async function getStaticPaths({paginate}: GetStaticPathsOptions){
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 	);
 
-  	return paginate(posts, { pageSize: 2 });
+  	return paginate(posts, { pageSize: 6 });
+	// Test paginate
+	//return paginate(posts, { pageSize: 1 });
 }
 
 // All paginated data is passed on the "page" prop
@@ -26,26 +28,26 @@ const { page } = Astro.props;
 	</head>
 	<body>
 		<BaseLayout>
-			<div id="site-body">
+			<div class="home">
 				<div class="container">
-					{
-						page.data.map((post) => (
-								<a href={`/blog/${post.slug}/`}>
-									<div class="content">
-										<h1 class="title">{post.data.title}</h1>
-										<p class="date"> Published on <FormattedDate date={post.data.pubDate} /></p>
-										<p>{post.data.description}</p>
-									</div>
-								</a>
-						))
-					}
-					<div class="pagination">
-						<h4>Page {page.currentPage}</h4>
+					{page.data.map((post) => (
+					<a href={`/blog/${post.id}/`}>
+						<div class="content">
+							<img width={100} height={100} src={post.data.heroImage} alt="" />
+							<div class="text-content">
+								<h2 class="title" style="">{post.data.title}</h2>
+								<div class="date" style=""> <FormattedDate date={post.data.pubDate} /></div>
+								<p>{post.data.description}</p>
+							</div>
+						</div>
+					</a>))}
+					<!-- <div class="pagination"> -->
+						<!-- <h4>Page {page.currentPage}</h4> -->
 						<!-- {page.url.first ? <a href={page.url.first}>First</a> : null} -->
-						{page.url.prev ? <a href={page.url.prev}>◀ Previous</a> : null}
-						{page.url.next ? <a href={page.url.next}>Next ▶</a> : null}
+						<!-- {page.url.prev ? <a href={page.url.prev} class="button">Back</a> : null} -->
+						<!-- {page.url.next ? <a href={page.url.next} class="button">Next</a> : null} -->
 						<!-- {page.url.last ? <a href={page.url.last}>Last</a> : null} -->
-					</div>
+					<!-- </div> -->
 				</div>
 			</div>
 		</BaseLayout>
