@@ -1,7 +1,9 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob, file } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const blog = defineCollection({
-	type: 'content',
+  	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
 	// Type-check frontmatter using a schema
 	schema: z.object({
 		title: z.string(),
@@ -15,7 +17,7 @@ const blog = defineCollection({
 });
 
 const portfolio = defineCollection({
-	type: 'content',
+	loader: glob({ base: './src/content/portfolio', pattern: '**/*.{md,mdx}' }),
 	// Type-check frontmatter using a schema
 	schema: z.object({
 		title: z.string(),
@@ -24,21 +26,7 @@ const portfolio = defineCollection({
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string(),
-		draft: z.boolean().optional(),
-	}),
-});
-
-const archive = defineCollection({
-	type: 'content',
-	// Type-check frontmatter using a schema
-	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		// Transform string to Date object
-		pubDate: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
-		archiveMedia: z.string().optional(),
+		heroImageSquare: z.string(),
 		draft: z.boolean().optional(),
 	}),
 });
@@ -46,5 +34,4 @@ const archive = defineCollection({
 export const collections = {
 	'blog': blog,
 	'portfolio': portfolio,
-	'archive': archive,
   };
