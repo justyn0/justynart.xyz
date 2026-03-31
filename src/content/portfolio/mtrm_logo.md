@@ -17,7 +17,7 @@ The Logo for <a href="https://medic.tf">Meet The Real Medic</a>. I designed, mod
 
 <div class="media-caption">
 
-<video src="/media/portfolio/mtrm_logo/mtrm_logo.webm" controls mute loop autoplay width="80%" class="center"></video>
+<video src="/media/portfolio/mtrm_logo/mtrm_logo.webm" controls muted loop autoplay width="80%" class="center"></video>
 
 </div>
 
