@@ -3,7 +3,7 @@ title: "Hotspot Textures in Team Fortress 2 TEST IOS"
 description: 'Hotspot Textures in Source 1? Fancy!'
 pubDate: '03 30 2026 12:00 pm'
 heroImage: '/media/blog/72hr-jam-tf2-hotspots/thumbnail.png'
-draft: true
+draft: false
 ---
 
 ![](/media/blog/72hr-jam-tf2-hotspots/thumbnail.png)
@@ -47,7 +47,7 @@ Most tiled materials in TF2 has a resolution of 1024x1024 and meant to be used o
 
 Keep in mind that Hammer++ will pick the closest matching hotspot rectangle based on the size of the brush face. So if you have a brush that's slightly bigger or smaller than the hotspot rectangle then it will stretch or squish. This is fine on most hotspots, however if the hotspot has a specific pattern like bricks then make sure you're not creating brushes that would cause the hotspot to stretch or squish.
 
-<video src="/media/blog/72hr-jam-tf2-hotspots/texture_dimensions.webm" controls class="center"></video>
+<video src="/media/blog/72hr-jam-tf2-hotspots/texture_dimensions.mp4" controls muted autoplay loop class="center"></video>
 
 ### Color map
 
@@ -65,11 +65,11 @@ I went into Photoshop and created a 2048x2048 canvas then I started remaking the
 
 Now since each rectangle is on a separate layer. I can use a combination of layer effects and layering existing textures to help me build detail quickly. With this I created a very simple mask of dirt building up near the edges of the rectangles. I gave all of the rectangles a inner glow and overlayed it on top of a grayscaled version of a existing concrete texture from TF2 and gave it a few more adjustments.
 
-<video src="/media/blog/72hr-jam-tf2-hotspots/hotspot_dirt_mask.webm" controls class="center" style="width: 60%"></video>
+<video src="/media/blog/72hr-jam-tf2-hotspots/hotspot_dirt_mask.mp4" controls muted autoplay loop class="center" style="width: 60%"></video>
 
 Now I can start working on the color for this texture. The actual texturing in this part of the process is very simple. It's mostly bashing and modifying other existing TF2 textures and then painting in or out any detail that I wanted and tweaking the colors.
 
-<video src="/media/blog/72hr-jam-tf2-hotspots/concretewall_gray_hs_layers.webm" controls class="center" style="width: 60%"></video>
+<video src="/media/blog/72hr-jam-tf2-hotspots/concretewall_gray_hs_layers.mp4" controls muted autoplay loop class="center" style="width: 60%"></video>
 
 ### Implementation
 
