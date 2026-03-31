@@ -3,7 +3,7 @@ title: "Hotspot Textures in Team Fortress 2 TEST IOS"
 description: 'Hotspot Textures in Source 1? Fancy!'
 pubDate: '03 30 2026 12:00 pm'
 heroImage: '/media/blog/72hr-jam-tf2-hotspots/thumbnail.png'
-draft: false
+draft: true
 ---
 
 ![](/media/blog/72hr-jam-tf2-hotspots/thumbnail.png)
