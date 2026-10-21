@@ -15,6 +15,7 @@ const posts = (await getCollection('portfolio'))
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
+	<body>
 	<BaseLayout>
 		<div class="home">
 			<div class="portfolio-container">
@@ -29,6 +30,7 @@ const posts = (await getCollection('portfolio'))
 							</a>
 					))
 				}
+				</div>
 			</div>
 		</div>
 	</BaseLayout>
